@@ -22,12 +22,19 @@ description:         Please see the README on GitHub at <https://github.com/gith
 dependencies:
 - base >= 4.7 && < 5
 - SHA >= 1.6
+- sandi >= 0.4.3
+- bytestring
+- cryptonite >= 0.24
+- memory >= 0.14.18
+- hex >= 0.1.2
+- aeson >= 1.4.2.0
+- encdec
 
 library:
   source-dirs: src
 
 executables:
-  gauth-vpn-exe:
+  hauth:
     main:                Main.hs
     source-dirs:         app
     ghc-options:

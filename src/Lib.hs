@@ -1,26 +1,31 @@
+{-# LANGUAGE OverloadedStrings #-}
+
 module Lib
     ( app
     ) where
 
-import Utils (dev2hex, hex2dev, base32ToHex)
+import Utils (base32ToHex, getTime)
+import File (getConfig, errorFileLoad, Config)
+import Data.ByteString.Char8 as BChar8
+import Data.Hex
+import Data.ByteArray
+import Crypto.Hash.IO
+import Crypto.Hash.Algorithms (SHA1)
 
-l :: (Show b) => (a -> b) -> a -> IO ()
-l f a = putStrLn (show $ f a)
+-- import qualified Crypto.Hash.SHA1 as SHA1
+import Crypto.MAC.HMAC (hmac, hmacGetDigest, HMAC)
 
 app :: IO ()
-app = do 
-  putStrLn "dev2hex ------"
-  l dev2hex 12
-  l dev2hex 16
-  l dev2hex 25
-  l dev2hex 89
-  putStrLn "hex2dev ------"
-  l hex2dev "0c"
-  l hex2dev "10"
-  l hex2dev "19"
-  l hex2dev "59"
-  putStrLn ("base32ToHex -------------------")
-  l base32ToHex "123456789abc"
-  -- l base32ToHex "222"
-  -- l base32ToHex "ac5"
-  return ()
+app = do
+  -- let key = base32ToHex "E2TSAVIDCG2N4FF52GZ6VUQMAUCIBTQN"
+  -- let key = "26a720550311b4de14bdd1b3ead20c050480ce0d" :: String
+  -- let msg = "000000000313d5f0" :: String
+  -- let msg = "51631600" :: ByteString
+  -- let h = hmac key msg :: HMAC SHA1
+
+  time <- getTime
+  -- Prelude.putStrLn $ ("epoch: " ++ show time)
+  -- Prelude.putStrLn $ show $ hmacGetDigest h
+  cfg <- getConfig
+  either errorFileLoad print cfg
+  -- BChar8.putStrLn key
