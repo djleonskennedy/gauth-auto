@@ -22,7 +22,7 @@ data Config = Config {
 instance FromJSON Config
 
 jsonFile :: FilePath
-jsonFile = "C:/vpn/config.json"
+jsonFile = "C:/projects/vpn/config.json"
 
 getJSON :: IO B.ByteString
 getJSON = B.readFile jsonFile

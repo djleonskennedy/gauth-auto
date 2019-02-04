@@ -1,19 +1,14 @@
 {-# LANGUAGE OverloadedStrings #-}
 
-module Lib
+module Core
     ( app
     ) where
 
-import Utils (base32ToHex, getTime)
 import File (getConfig, errorFileLoad, Config)
 import Data.ByteString.Char8 as BChar8
 import Data.Hex
 import Data.ByteArray
-import Crypto.Hash.IO
-import Crypto.Hash.Algorithms (SHA1)
-
--- import qualified Crypto.Hash.SHA1 as SHA1
-import Crypto.MAC.HMAC (hmac, hmacGetDigest, HMAC)
+import Time (hexTime)
 
 app :: IO ()
 app = do
@@ -23,9 +18,13 @@ app = do
   -- let msg = "51631600" :: ByteString
   -- let h = hmac key msg :: HMAC SHA1
 
-  time <- getTime
   -- Prelude.putStrLn $ ("epoch: " ++ show time)
   -- Prelude.putStrLn $ show $ hmacGetDigest h
+  time <- hexTime
+  Prelude.putStrLn $ show time
+
+  -- time <- Time.getUnixTime
+  -- Prelude.putStrLn $ show $ Time.toEpochTime time
   cfg <- getConfig
   either errorFileLoad print cfg
   -- BChar8.putStrLn key

@@ -29,6 +29,8 @@ dependencies:
 - hex >= 0.1.2
 - aeson >= 1.4.2.0
 - encdec
+- hspec >= 2.6.1
+- time >=1.4 && <1.9
 
 library:
   source-dirs: src
