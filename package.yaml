@@ -28,7 +28,9 @@ dependencies:
 - memory >= 0.14.18
 - hex >= 0.1.2
 - aeson >= 1.4.2.0
+- unix-time >= 0.4.5
 - encdec
+- hspec >= 2.7.0
 
 library:
   source-dirs: src

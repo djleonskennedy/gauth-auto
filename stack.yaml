@@ -39,6 +39,7 @@ packages:
 # (e.g., acme-missiles-0.3)
 extra-deps: 
 - sandi-0.4.3
+- unix-time-0.4.5
 - location:
   git:  https://github.com/aleshgo/encdec.git 
   commit: develop
