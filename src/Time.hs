@@ -1,4 +1,4 @@
-module Time (hexTime) where
+module Time (hexTime, toHex) where
 
 import qualified Data.Time.Clock.POSIX as PT
 import Data.Hex (hex)

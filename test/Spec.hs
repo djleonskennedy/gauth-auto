@@ -1,4 +1,5 @@
 import Test.Hspec
+import Time (toHex)
 
 main :: IO ()
 main = do
@@ -7,5 +8,5 @@ main = do
 spec :: Spec
 spec = do
   describe "time" $ do
-    it "unix time to hex" $ do
-      Decoder.decode (Encoded "" :: Encoded 'Base32) `shouldBe` Right ""
+    it "toHex" $ do
+      (toHex 11) `shouldBe` "b"
