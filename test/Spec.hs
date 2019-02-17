@@ -1,5 +1,11 @@
 import Test.Hspec
-import Time (toHex)
+import KeyManager (generate)
+import Encdec.Encoded
+import HuskPrelude
+import Time (getTime)
+import Encdec.Encoding
+import Encdec.Encoder
+import Encdec.Encoder as Encoder
 
 main :: IO ()
 main = do
@@ -7,6 +13,8 @@ main = do
 
 spec :: Spec
 spec = do
-  describe "time" $ do
-    it "toHex" $ do
-      (toHex 11) `shouldBe` "b"
+  describe "KeyManager" $ do
+    it "should generate correct key" $ do
+      msg <- fmap Encoder.encode getTime :: IO (Encoded Hex)
+      key <- generate msg (Encoded "EEEEAFFF44NNN5524QQQQUQMAUCI2222")
+      key `shouldBe` "943132"

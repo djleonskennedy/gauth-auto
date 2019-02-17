@@ -39,9 +39,11 @@ packages:
 # (e.g., acme-missiles-0.3)
 extra-deps: 
 - sandi-0.4.3
-- git:  https://github.com/aleshgo/encdec.git 
-  commit: 47921de2022b5245e7d8f2b2f45f3e6f19f0c3e4
 - time-1.8.0.4
+- git:  https://github.com/aleshgo/encdec.git
+  commit: 41eb87f27ea11e9444261672f9c077f057f2e089 
+- git: https://github.com/aleshgo/husk-prelude.git
+  commit: 1cb39d2687a216e8a1cbe0e310ae08ab4cbfd104
 
 # Override default flag values for local packages and extra-deps
 # flags: {}

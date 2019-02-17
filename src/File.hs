@@ -10,6 +10,7 @@ import Data.Aeson
 import GHC.Generics
 import Data.Monoid
 import qualified Data.ByteString.Lazy as B
+import HuskPrelude
 
 data Config = Config {
     login :: String
