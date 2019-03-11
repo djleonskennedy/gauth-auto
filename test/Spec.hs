@@ -2,10 +2,13 @@ import Test.Hspec
 import KeyManager (generate)
 import Encdec.Encoded
 import HuskPrelude
-import Time (getTime)
 import Encdec.Encoding
 import Encdec.Encoder
 import Encdec.Encoder as Encoder
+
+-- time mock
+getTime :: IO Int
+getTime = return 51631600
 
 main :: IO ()
 main = do
