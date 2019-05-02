@@ -43,6 +43,9 @@ so you can go there for types
 
 PRs, issues are welcome
 
+### Unix solution
+[check this gist](https://gist.github.com/djleonskennedy/aa4a53265523d2bd805bb5cea7e40f48)
+
 ### Resources
 
 [rfc6238](https://tools.ietf.org/html/rfc6238)
